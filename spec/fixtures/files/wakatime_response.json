@@ -1,0 +1,369 @@
+{
+  "available_branches": [
+    "feat-fetch-issues", 
+    "master"
+  ], 
+  "branches": [], 
+  "data": [
+    {
+      "editors": [
+        {
+          "digital": "5:45:57", 
+          "hours": 5, 
+          "minutes": 45, 
+          "name": "Vscode", 
+          "percent": 99.96, 
+          "seconds": 57, 
+          "text": "5 hrs 45 mins", 
+          "total_seconds": 20757
+        }, 
+        {
+          "digital": "0:00:08", 
+          "hours": 0, 
+          "minutes": 0, 
+          "name": "Vim", 
+          "percent": 0.04, 
+          "seconds": 8, 
+          "text": "0 secs", 
+          "total_seconds": 8
+        }
+      ], 
+      "entities": [
+        {
+          "digital": "2:30:43", 
+          "hours": 2, 
+          "minutes": 30, 
+          "name": "/Path/to/repository/project_a/src/app.actions.ts", 
+          "percent": 43.53, 
+          "seconds": 43, 
+          "text": "2 hrs 30 mins", 
+          "total_seconds": 9043, 
+          "type": "file"
+        }, 
+        {
+          "digital": "1:16:41", 
+          "hours": 1, 
+          "minutes": 16, 
+          "name": "/Path/to/repository/project_a/src/components/select-repository.component.ts", 
+          "percent": 22.15, 
+          "seconds": 41, 
+          "text": "1 hr 16 mins", 
+          "total_seconds": 4601, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:29:51", 
+          "hours": 0, 
+          "minutes": 29, 
+          "name": "/Path/to/repository/project_a/src/components/label.component.ts", 
+          "percent": 8.62, 
+          "seconds": 51, 
+          "text": "29 mins", 
+          "total_seconds": 1791, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:29:17", 
+          "hours": 0, 
+          "minutes": 29, 
+          "name": "/Path/to/repository/project_a/src/components/issues.ts", 
+          "percent": 8.46, 
+          "seconds": 17, 
+          "text": "29 mins", 
+          "total_seconds": 1757, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:18:47", 
+          "hours": 0, 
+          "minutes": 18, 
+          "name": "/Path/to/repository/project_a/src/components/issues.component.ts", 
+          "percent": 5.43, 
+          "seconds": 47, 
+          "text": "18 mins", 
+          "total_seconds": 1127, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:14:24", 
+          "hours": 0, 
+          "minutes": 14, 
+          "name": "/Path/to/repository/project_a/src/app.state.ts", 
+          "percent": 4.16, 
+          "seconds": 24, 
+          "text": "14 mins", 
+          "total_seconds": 864, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:14:21", 
+          "hours": 0, 
+          "minutes": 14, 
+          "name": "/Path/to/repository/project_a/src/components/app.component.ts", 
+          "percent": 4.15, 
+          "seconds": 21, 
+          "text": "14 mins", 
+          "total_seconds": 861, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:04:25", 
+          "hours": 0, 
+          "minutes": 4, 
+          "name": "/Path/to/repository/project_a/src/app.store.ts", 
+          "percent": 1.28, 
+          "seconds": 25, 
+          "text": "4 mins", 
+          "total_seconds": 265, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:02:55", 
+          "hours": 0, 
+          "minutes": 2, 
+          "name": "/Path/to/repository/project_a/src/components/hello-world.component.ts", 
+          "percent": 0.84, 
+          "seconds": 55, 
+          "text": "2 mins", 
+          "total_seconds": 175, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:01:31", 
+          "hours": 0, 
+          "minutes": 1, 
+          "name": "/Path/to/repository/project_a/src/app.module.ts", 
+          "percent": 0.44, 
+          "seconds": 31, 
+          "text": "1 min", 
+          "total_seconds": 91, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:00:43", 
+          "hours": 0, 
+          "minutes": 0, 
+          "name": "/Path/to/repository/project_a/node_modules/walts/src/actions.js", 
+          "percent": 0.21, 
+          "seconds": 43, 
+          "text": "0 secs", 
+          "total_seconds": 43, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:00:41", 
+          "hours": 0, 
+          "minutes": 0, 
+          "name": "/Path/to/repository/project_a/docs/bundle.js", 
+          "percent": 0.2, 
+          "seconds": 41, 
+          "text": "0 secs", 
+          "total_seconds": 41, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:00:24", 
+          "hours": 0, 
+          "minutes": 0, 
+          "name": "/Path/to/repository/project_a/node_modules/typescript/lib/lib.es5.d.ts", 
+          "percent": 0.12, 
+          "seconds": 24, 
+          "text": "0 secs", 
+          "total_seconds": 24, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:00:24", 
+          "hours": 0, 
+          "minutes": 0, 
+          "name": "/Path/to/repository/project_a/node_modules/walts/index.js", 
+          "percent": 0.12, 
+          "seconds": 24, 
+          "text": "0 secs", 
+          "total_seconds": 24, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:00:12", 
+          "hours": 0, 
+          "minutes": 0, 
+          "name": "/Path/to/repository/project_a/node_modules/@types/whatwg-fetch/index.d.ts", 
+          "percent": 0.06, 
+          "seconds": 12, 
+          "text": "0 secs", 
+          "total_seconds": 12, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:00:12", 
+          "hours": 0, 
+          "minutes": 0, 
+          "name": "/Path/to/repository/project_a/node_modules/walts/src/actions.d.ts", 
+          "percent": 0.06, 
+          "seconds": 12, 
+          "text": "0 secs", 
+          "total_seconds": 12, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:00:09", 
+          "hours": 0, 
+          "minutes": 0, 
+          "name": "/Path/to/repository/project_a/node_modules/walts/package.json", 
+          "percent": 0.04, 
+          "seconds": 9, 
+          "text": "0 secs", 
+          "total_seconds": 9, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:00:08", 
+          "hours": 0, 
+          "minutes": 0, 
+          "name": "/Path/to/repository/project_a/tsconfig.json", 
+          "percent": 0.04, 
+          "seconds": 8, 
+          "text": "0 secs", 
+          "total_seconds": 8, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:00:08", 
+          "hours": 0, 
+          "minutes": 0, 
+          "name": "/Path/to/repository/project_a/.git/COMMIT_EDITMSG", 
+          "percent": 0.04, 
+          "seconds": 8, 
+          "text": "0 secs", 
+          "total_seconds": 8, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:00:06", 
+          "hours": 0, 
+          "minutes": 0, 
+          "name": "/Path/to/repository/project_a/.tmp/hello-world.component.js", 
+          "percent": 0.03, 
+          "seconds": 6, 
+          "text": "0 secs", 
+          "total_seconds": 6, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:00:05", 
+          "hours": 0, 
+          "minutes": 0, 
+          "name": "/Path/to/repository/project_a/node_modules/typescript/lib/lib.es2015.iterable.d.ts", 
+          "percent": 0.02, 
+          "seconds": 5, 
+          "text": "0 secs", 
+          "total_seconds": 5, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:00:03", 
+          "hours": 0, 
+          "minutes": 0, 
+          "name": "/Path/to/repository/project_a/node_modules/typescript/lib/lib.dom.d.ts", 
+          "percent": 0.01, 
+          "seconds": 3, 
+          "text": "0 secs", 
+          "total_seconds": 3, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:00:01", 
+          "hours": 0, 
+          "minutes": 0, 
+          "name": "/Path/to/repository/project_a/src/app.dispatcher.ts", 
+          "percent": 0.0, 
+          "seconds": 1, 
+          "text": "0 secs", 
+          "total_seconds": 1, 
+          "type": "file"
+        }, 
+        {
+          "digital": "0:00:01", 
+          "hours": 0, 
+          "minutes": 0, 
+          "name": "/Path/to/repository/project_a/node_modules/typescript/lib/lib.es2015.promise.d.ts", 
+          "percent": 0.0, 
+          "seconds": 1, 
+          "text": "0 secs", 
+          "total_seconds": 1, 
+          "type": "file"
+        }
+      ], 
+      "grand_total": {
+        "digital": "5:46", 
+        "hours": 5, 
+        "minutes": 46, 
+        "text": "5 hrs 46 mins", 
+        "total_seconds": 20772
+      }, 
+      "languages": [
+        {
+          "digital": "5:43:49", 
+          "hours": 5, 
+          "minutes": 43, 
+          "name": "TypeScript", 
+          "percent": 99.33, 
+          "seconds": 49, 
+          "text": "5 hrs 43 mins", 
+          "total_seconds": 20629
+        }, 
+        {
+          "digital": "0:01:54", 
+          "hours": 0, 
+          "minutes": 1, 
+          "name": "JavaScript", 
+          "percent": 0.55, 
+          "seconds": 54, 
+          "text": "1 min", 
+          "total_seconds": 114
+        }, 
+        {
+          "digital": "0:00:17", 
+          "hours": 0, 
+          "minutes": 0, 
+          "name": "JSON", 
+          "percent": 0.08, 
+          "seconds": 17, 
+          "text": "0 secs", 
+          "total_seconds": 17
+        }, 
+        {
+          "digital": "0:00:08", 
+          "hours": 0, 
+          "minutes": 0, 
+          "name": "Other", 
+          "percent": 0.04, 
+          "seconds": 8, 
+          "text": "0 secs", 
+          "total_seconds": 8
+        }
+      ], 
+      "operating_systems": [
+        {
+          "digital": "5:46:05", 
+          "hours": 5, 
+          "minutes": 46, 
+          "name": "Mac", 
+          "percent": 100.0, 
+          "seconds": 5, 
+          "text": "5 hrs 46 mins", 
+          "total_seconds": 20765
+        }
+      ], 
+      "range": {
+        "date": "2016-10-02", 
+        "end": "2016-10-02T14:59:59Z", 
+        "start": "2016-10-01T15:00:00Z", 
+        "text": "Sun Oct 2nd 2016", 
+        "timezone": "Asia/Tokyo"
+      }
+    }
+  ], 
+  "end": "2016-10-02T14:59:59Z", 
+  "start": "2016-10-01T15:00:00Z"
+}
