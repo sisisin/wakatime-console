@@ -10,18 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161008070044) do
+ActiveRecord::Schema.define(version: 20161008104814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "projects", force: :cascade do |t|
-    t.date     "date",          null: false
+  create_table "editors", force: :cascade do |t|
+    t.integer  "project_id",    null: false
     t.string   "name",          null: false
     t.integer  "total_seconds", null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["date", "name"], name: "index_projects_on_date_and_name", unique: true, using: :btree
+    t.index ["project_id"], name: "index_editors_on_project_id", using: :btree
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.date     "date"
+    t.string   "name"
+    t.integer  "total_seconds"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_foreign_key "editors", "projects"
 end
