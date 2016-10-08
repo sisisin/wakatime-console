@@ -1,0 +1,173 @@
+{
+  "available_branches": [
+    "master"
+  ],
+  "branches": [],
+  "data": [
+    {
+      "editors": [
+        {
+          "digital": "0:48:41",
+          "hours": 0,
+          "minutes": 48,
+          "name": "Vscode",
+          "percent": 100.00,
+          "seconds": 41,
+          "text": "48 mins",
+          "total_seconds": 2921
+        }
+      ],
+      "entities": [
+        {
+          "digital": "0:24:14",
+          "hours": 0,
+          "minutes": 24,
+          "name": "/Path/to/repository/project_b/src/dispatcher.ts",
+          "percent": 49.76,
+          "seconds": 14,
+          "text": "24 mins",
+          "total_seconds": 1454,
+          "type": "file"
+        },
+        {
+          "digital": "0:14:20",
+          "hours": 0,
+          "minutes": 14,
+          "name": "/Path/to/repository/project_b/src/actions.ts",
+          "percent": 29.43,
+          "seconds": 20,
+          "text": "14 mins",
+          "total_seconds": 860,
+          "type": "file"
+        },
+        {
+          "digital": "0:04:56",
+          "hours": 0,
+          "minutes": 4,
+          "name": "/Path/to/repository/project_b/package.json",
+          "percent": 10.13,
+          "seconds": 56,
+          "text": "4 mins",
+          "total_seconds": 296,
+          "type": "file"
+        },
+        {
+          "digital": "0:02:34",
+          "hours": 0,
+          "minutes": 2,
+          "name": "/Path/to/repository/project_b/test/test.ts",
+          "percent": 5.27,
+          "seconds": 34,
+          "text": "2 mins",
+          "total_seconds": 154,
+          "type": "file"
+        },
+        {
+          "digital": "0:01:31",
+          "hours": 0,
+          "minutes": 1,
+          "name": "/Path/to/repository/project_b/tsconfig.json",
+          "percent": 3.11,
+          "seconds": 31,
+          "text": "1 min",
+          "total_seconds": 91,
+          "type": "file"
+        },
+        {
+          "digital": "0:00:56",
+          "hours": 0,
+          "minutes": 0,
+          "name": "/Path/to/repository/project_b/src/store.ts",
+          "percent": 1.92,
+          "seconds": 56,
+          "text": "0 secs",
+          "total_seconds": 56,
+          "type": "file"
+        },
+        {
+          "digital": "0:00:06",
+          "hours": 0,
+          "minutes": 0,
+          "name": "/Path/to/repository/project_b/examples/flux-chat/tsconfig.json",
+          "percent": 0.21,
+          "seconds": 6,
+          "text": "0 secs",
+          "total_seconds": 6,
+          "type": "file"
+        },
+        {
+          "digital": "0:00:04",
+          "hours": 0,
+          "minutes": 0,
+          "name": "/Path/to/repository/project_b/src/utils.ts",
+          "percent": 0.14,
+          "seconds": 4,
+          "text": "0 secs",
+          "total_seconds": 4,
+          "type": "file"
+        },
+        {
+          "digital": "0:00:01",
+          "hours": 0,
+          "minutes": 0,
+          "name": "/Path/to/repository/project_b/src/actions.d.ts",
+          "percent": 0.03,
+          "seconds": 1,
+          "text": "0 secs",
+          "total_seconds": 1,
+          "type": "file"
+        }
+      ],
+      "grand_total": {
+        "digital": "0:48",
+        "hours": 0,
+        "minutes": 48,
+        "text": "48 mins",
+        "total_seconds": 2922
+      },
+      "languages": [
+        {
+          "digital": "0:42:09",
+          "hours": 0,
+          "minutes": 42,
+          "name": "TypeScript",
+          "percent": 86.58,
+          "seconds": 9,
+          "text": "42 mins",
+          "total_seconds": 2529
+        },
+        {
+          "digital": "0:06:32",
+          "hours": 0,
+          "minutes": 6,
+          "name": "JSON",
+          "percent": 13.42,
+          "seconds": 32,
+          "text": "6 mins",
+          "total_seconds": 392
+        }
+      ],
+      "operating_systems": [
+        {
+          "digital": "0:48:41",
+          "hours": 0,
+          "minutes": 48,
+          "name": "Mac",
+          "percent": 100.00,
+          "seconds": 41,
+          "text": "48 mins",
+          "total_seconds": 2921
+        }
+      ],
+      "range": {
+        "date": "2016-10-02",
+        "end": "2016-10-02T14:59:59Z",
+        "start": "2016-10-01T15:00:00Z",
+        "text": "Sun Oct 2nd 2016",
+        "timezone": "Asia/Tokyo"
+      }
+    }
+  ],
+  "end": "2016-10-02T14:59:59Z",
+  "start": "2016-10-01T15:00:00Z"
+}
