@@ -9,6 +9,10 @@ class SummaryAggregator
     fetch_wakatime(start: target_date.to_s, end: target_date.to_s, project: project)
   end
 
+  def fetch_projects(target_date = Date::today - 1)
+    fetch_wakatime(start: target_date.to_s, end: target_date.to_s)
+  end
+
   def save(target_date = Date::today - 1, project = "wakatime-console")
     data = fetch_project_summary(target_date, project)['data'].first
     total_seconds = data['grand_total']['total_seconds']

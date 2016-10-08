@@ -8,6 +8,7 @@ require 'webmock/rspec'
 describe 'SummaryAggregator' do
   target_date = Date.new(2016, 9, 22)
   project_a_fixture = open('spec/fixtures/files/wt_res_project_a.json') { |f| JSON.load(f) }
+  projects_fixture = open('spec/fixtures/files/wt_res_projects.json') { |f| JSON.load(f) }
   project_a = "project_a"
   base_query = {
     start: target_date.to_s,
@@ -24,6 +25,18 @@ describe 'SummaryAggregator' do
         .to_return(body: JSON.generate(project_a_fixture))
 
       expect(SummaryAggregator.new.fetch_project_summary(target_date, project_a)).to eq project_a_fixture
+    end
+  end
+
+  describe "fetch_projects success" do
+    after { WebMock.reset! }
+
+    it "with params" do
+      stub_request(:get, /wakatime.com\/api\/v1\/users\/52f058ec-e04e-436b-906d-eff6c461abf5\/summaries.*/)
+        .with(query: base_query)
+        .to_return(body: JSON.generate(projects_fixture))
+
+      expect(SummaryAggregator.new.fetch_projects(target_date)).to eq projects_fixture
     end
   end
 
