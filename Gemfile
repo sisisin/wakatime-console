@@ -36,6 +36,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
   gem 'webmock'
+  gem 'shoulda-matchers'
 end
 
 group :development do
