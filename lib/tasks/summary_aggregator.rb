@@ -17,7 +17,8 @@ class SummaryAggregator
       api_key: api_key
     }
     uri = 'https://wakatime.com/api/v1/users/52f058ec-e04e-436b-906d-eff6c461abf5/summaries'
-    body = client.get(uri, query).body
+    res = client.get(uri, query)
+    body = res.body
     JSON.load(body)
   end
 end
