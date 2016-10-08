@@ -5,7 +5,7 @@ require 'json'
 class SummaryAggregator
   # todo fetch projects and aggregate there.
 
-  def fetch_project_summary(target_date = Date::today - 1, project = 'wakatime-console')
+  def fetch_project_summary(target_date = Date::today - 1, project)
     fetch_wakatime(start: target_date.to_s, end: target_date.to_s, project: project)
   end
 
@@ -13,7 +13,7 @@ class SummaryAggregator
     fetch_wakatime(start: target_date.to_s, end: target_date.to_s)
   end
 
-  def save(target_date = Date::today - 1, project = "wakatime-console")
+  def save(target_date = Date::today - 1, project)
     data = fetch_project_summary(target_date, project)['data'].first
     total_seconds = data['grand_total']['total_seconds']
     project = Project.create(date: target_date, name: project, total_seconds: total_seconds)
