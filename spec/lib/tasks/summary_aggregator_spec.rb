@@ -9,20 +9,18 @@ describe 'SummaryAggregator' do
   target_date = Date.new(2016, 9, 22)
   wakatime_fixture = open('spec/fixtures/files/wakatime_response.json') { |f| JSON.load(f) }
   project = "wakatime-console"
+  base_query = {
+    start: target_date.to_s,
+    end: target_date.to_s,
+    api_key: ENV['WAKATIME_API_KEY']
+  } 
 
   describe "fetch_project_summary wakatime success" do
-    after do
-      WebMock.reset!
-    end
+    after { WebMock.reset! }
 
     it "with params" do
       stub_request(:get, /wakatime.com\/api\/v1\/users\/52f058ec-e04e-436b-906d-eff6c461abf5\/summaries.*/)
-        .with(query: {
-          start: target_date.to_s,
-          end: target_date.to_s,
-          project: 'wakatime-console',
-          api_key: ENV['WAKATIME_API_KEY']
-        })
+        .with(query: base_query.merge(project: project))
         .to_return(body: JSON.generate(wakatime_fixture))
 
       expect(SummaryAggregator.new.fetch_project_summary(target_date)).to eq wakatime_fixture
@@ -36,9 +34,7 @@ describe 'SummaryAggregator' do
       SummaryAggregator.new.save(target_date, project)
     end
 
-    after(:each) do
-      WebMock.reset!
-    end
+    after(:each) { WebMock.reset! }
 
     it "create project that named by argument" do
       expect(Project.first.name).to eq project
