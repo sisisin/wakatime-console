@@ -10,7 +10,7 @@ describe 'SummaryAggregator' do
   wakatime_fixture = open('spec/fixtures/files/wakatime_response.json') { |f| JSON.load(f) }
   project = "wakatime-console"
 
-  describe "fetch wakatime success" do
+  describe "fetch_project_summary wakatime success" do
     after do
       WebMock.reset!
     end
@@ -25,7 +25,7 @@ describe 'SummaryAggregator' do
         })
         .to_return(body: JSON.generate(wakatime_fixture))
 
-      expect(SummaryAggregator.new.fetch(target_date)).to eq wakatime_fixture
+      expect(SummaryAggregator.new.fetch_project_summary(target_date)).to eq wakatime_fixture
     end
   end
 
