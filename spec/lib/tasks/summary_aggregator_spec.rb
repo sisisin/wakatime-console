@@ -8,6 +8,7 @@ require 'webmock/rspec'
 describe 'SummaryAggregator' do
   target_date = Date.new(2016, 9, 22)
   project_a_fixture = open('spec/fixtures/files/wt_res_project_a.json') { |f| JSON.load(f) }
+  project_b_fixture = open('spec/fixtures/files/wt_res_project_b.json') { |f| JSON.load(f) }
   projects_fixture = open('spec/fixtures/files/wt_res_projects.json') { |f| JSON.load(f) }
   project_a = "project_a"
   base_query = {
@@ -79,6 +80,36 @@ describe 'SummaryAggregator' do
 
     it "create operating_system that has 1 data" do
       expect(OperatingSystem.all.size).to eq project_a_fixture['data'].first['operating_systems'].size
+    end
+  end
+
+  describe "save_all" do
+    before(:each) do
+      stub_request(:get, /wakatime.com\/api\/v1\/users\/52f058ec-e04e-436b-906d-eff6c461abf5\/summaries.*/)
+        .with(query: base_query)
+        .to_return(body: JSON.generate(projects_fixture))
+
+      stub_request(:get, /wakatime.com\/api\/v1\/users\/52f058ec-e04e-436b-906d-eff6c461abf5\/summaries.*project=project_a*/)
+        .to_return(body: JSON.generate(project_a_fixture))
+
+      stub_request(:get, /wakatime.com\/api\/v1\/users\/52f058ec-e04e-436b-906d-eff6c461abf5\/summaries.*project=project_b*/)
+        .to_return(body: JSON.generate(project_b_fixture))
+
+      SummaryAggregator.new.save_all(target_date)
+    end
+
+    after(:each) { WebMock.reset! }
+
+    it "create projects from projects response" do
+      expect(Project.all.size).to eq projects_fixture['data'].first['projects'].size
+    end
+
+    it "create project_a" do
+      expect(Project.first.name).to eq projects_fixture['data'].first['projects'].first['name']
+    end
+
+    it "create project_b" do
+      expect(Project.last.name).to eq projects_fixture['data'].first['projects'].last['name']
     end
   end
 end
