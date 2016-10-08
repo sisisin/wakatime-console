@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161008105621) do
+ActiveRecord::Schema.define(version: 20161008110154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 20161008105621) do
     t.index ["project_id"], name: "index_entities_on_project_id", using: :btree
   end
 
+  create_table "languages", force: :cascade do |t|
+    t.integer  "project_id",    null: false
+    t.string   "name",          null: false
+    t.integer  "total_seconds", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["project_id"], name: "index_languages_on_project_id", using: :btree
+  end
+
   create_table "projects", force: :cascade do |t|
     t.date     "date"
     t.string   "name"
@@ -43,4 +52,5 @@ ActiveRecord::Schema.define(version: 20161008105621) do
 
   add_foreign_key "editors", "projects"
   add_foreign_key "entities", "projects"
+  add_foreign_key "languages", "projects"
 end
