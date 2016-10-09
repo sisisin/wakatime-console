@@ -1,5 +1,5 @@
 require "rails_helper"
-require_relative '../../../lib/tasks/summary_aggregator'
+require_relative '../../../lib/summary_aggregator'
 require 'date'
 require 'json'
 require 'webmock/rspec'
