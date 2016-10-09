@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "browserify": "browserify ./.tmp/index.js -o ../app/assets/javascripts/bundle.js",
-    "watchify": "watchify ./.tmp/index.js -o ../app/assets/javascripts/bundle.js -v",
+    "browserify": "browserify front/.tmp/index.js -o app/assets/javascripts/bundle.js",
+    "watchify": "watchify front/.tmp/index.js -o app/assets/javascripts/bundle.js -v",
     "build": "npm run tsc && npm run browserify",
     "watch": "npm-run-all --parallel tsc:w watchify"
   },
