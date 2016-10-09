@@ -52,11 +52,12 @@ ActiveRecord::Schema.define(version: 20161008110352) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.date     "date"
-    t.string   "name"
-    t.integer  "total_seconds"
+    t.date     "date",          null: false
+    t.string   "name",          null: false
+    t.integer  "total_seconds", null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["date", "name"], name: "index_projects_on_date_and_name", unique: true, using: :btree
   end
 
   add_foreign_key "editors", "projects"
