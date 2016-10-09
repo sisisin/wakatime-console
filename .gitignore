@@ -19,3 +19,10 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore node.js
+node_modules/
+
+# Ignore bundle
+front/.tmp/
+app/assets/javascripts/bundle.js
