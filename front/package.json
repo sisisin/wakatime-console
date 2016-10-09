@@ -27,6 +27,7 @@
     "zone.js": "^0.6.21"
   },
   "devDependencies": {
+    "@types/whatwg-fetch": "0.0.32",
     "browserify": "^13.1.0",
     "npm-run-all": "^3.1.0",
     "typescript": "^2.0.3",
