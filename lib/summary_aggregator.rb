@@ -23,10 +23,10 @@ class SummaryAggregator
     total_seconds = data['grand_total']['total_seconds']
     project = Project.create!(date: target_date, name: project, total_seconds: total_seconds)
 
-    data['editors'].map { |e| project.editor.build(get_model_entity(e)) }
-    data['entities'].map { |e| project.entity.build(get_model_entity(e)) }
-    data['languages'].map { |e| project.language.build(get_model_entity(e)) }
-    data['operating_systems'].map { |e| project.operating_system.build(get_model_entity(e)) }
+    data['editors'].map { |e| project.editors.build(get_model_entity(e)) }
+    data['entities'].map { |e| project.entities.build(get_model_entity(e)) }
+    data['languages'].map { |e| project.languages.build(get_model_entity(e)) }
+    data['operating_systems'].map { |e| project.operating_systems.build(get_model_entity(e)) }
     project.save
   end
 
