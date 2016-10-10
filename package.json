@@ -1,0 +1,40 @@
+{
+  "name": "wakatime-console",
+  "version": "1.0.0",
+  "engines": {
+    "node": "6.3.0"
+  },
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "browserify": "browserify front/.tmp/index.js -o app/assets/javascripts/bundle.js",
+    "watchify": "watchify front/.tmp/index.js -o app/assets/javascripts/bundle.js -v",
+    "build": "npm run tsc && npm run browserify",
+    "watch": "npm-run-all --parallel tsc:w watchify",
+    "heroku-postbuild": "npm run build"
+  },
+  "keywords": [],
+  "author": "sisisin",
+  "license": "MIT",
+  "dependencies": {
+    "@angular/common": "^2.0.1",
+    "@angular/compiler": "^2.0.1",
+    "@angular/core": "^2.0.1",
+    "@angular/platform-browser": "^2.0.1",
+    "@angular/platform-browser-dynamic": "^2.0.1",
+    "@types/whatwg-fetch": "0.0.32",
+    "browserify": "^13.1.0",
+    "core-js": "^2.4.1",
+    "rxjs": "^5.0.0-beta.12",
+    "typescript": "^2.0.3",
+    "walts": "^0.10.0",
+    "zone.js": "^0.6.21"
+  },
+  "devDependencies": {
+    "npm-run-all": "^3.1.0",
+    "watchify": "^3.7.0"
+  }
+}

@@ -21,12 +21,11 @@ class SummaryAggregator
   def save(target_date = Date::today - 1, project)
     data = fetch_project_summary(target_date, project)['data'].first
     total_seconds = data['grand_total']['total_seconds']
-    project = Project.create(date: target_date, name: project, total_seconds: total_seconds)
+    project = Project.create!(date: target_date, name: project, total_seconds: total_seconds)
 
-    Editor.import data['editors'].map { |e| project.editor.build(get_model_entity(e)) }
-    Entity.import data['entities'].map { |e| project.entity.build(get_model_entity(e)) }
-    Language.import data['languages'].map { |e| project.language.build(get_model_entity(e)) }
-    OperatingSystem.import data['operating_systems'].map { |e| project.operating_system.build(get_model_entity(e)) }
+    %w`editors entities languages operating_systems`
+      .map { |sym| data[sym].map { |e| project.send(sym).build(get_model_entity(e)) } }
+    project.save
   end
 
   private
