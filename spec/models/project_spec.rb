@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Project, type: :model do
+  subject { Project.new(date: "2016-09-01", name: "42project", total_seconds: 42) }
+
   it { should have_many(:editors)}
   it { should have_many(:entities)}
   it { should have_many(:languages)}
