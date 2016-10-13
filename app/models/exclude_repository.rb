@@ -1,0 +1,2 @@
+class ExcludeRepository < ApplicationRecord
+end
