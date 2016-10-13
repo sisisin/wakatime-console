@@ -11,7 +11,7 @@ export class AppActions extends Actions<AppState> {
         .then(res => res.json())
         .then(json => {
           console.log(json);
-          return (state: AppState) => Object.assign({}, state, json);
+          return (state: AppState) => Object.assign({}, state, { summaries: json });
         });
     }
   }
