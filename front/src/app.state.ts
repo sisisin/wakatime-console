@@ -16,7 +16,7 @@ export interface IResSummary {
 }
 
 export interface IDailySummaries {
-  date: string;
+  date: Date;
   summaries: IResSummary[];
 }
 export type IDayOfWeekSummaries = IDailySummaries[];

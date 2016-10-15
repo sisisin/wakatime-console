@@ -1,7 +1,10 @@
 import { Component, Input } from '@angular/core';
+import * as moment from 'moment';
 import { AppActions } from '../app.actions';
 import { AppDispatcher } from '../app.dispatcher';
 import { IResSummary, IDayOfWeekSummaries } from '../app.state';
+
+const dayToString = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 @Component({
   selector: 'my-weekly',
@@ -25,11 +28,22 @@ export class WeeklyComponent {
     return [{ data, label: 'total sec', lineTension: 0.2 }];
   }
   get labels() {
-    return this.summaries.map(s => s.date);
+    return this.summaries.map(s => `${dayToString[s.date.getDay()]}. ${s.date.getMonth() + 1}-${s.date.getDate()}`);
   }
   public options = {
     animation: false,
-    responsive: true
+    responsive: true,
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+          stepSize: 60 * 60 * 0.5,
+          callback(value: number) {
+            return moment.duration(value, 'seconds').asHours().toString().slice(0, 3) + ' hr';
+          }
+        }
+      }]
+    }
   };
   public colors = [{
     backgroundColor: 'rgba(77,83,96,0.2)',
