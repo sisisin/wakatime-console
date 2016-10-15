@@ -21,6 +21,7 @@ export class AppStore extends Store<AppState> {
   }
   get dayOfSummaries(): Observable<IDayOfSummaries> {
     return this.observable.map<IDayOfSummaries>(s => {
+      if (s.summaries.length === 0) return;
       const d = s.summaries.reduce((prev, curr, i) => {
         const newValue = prev[curr.date] ? [...prev[curr.date], curr] : [curr];
         return Object.assign({}, prev, { [curr.date]: newValue });
