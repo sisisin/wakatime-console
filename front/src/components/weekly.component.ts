@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { AppActions } from '../app.actions';
 import { AppDispatcher } from '../app.dispatcher';
-import { IResSummary, IDayOfSummaries } from '../app.state';
+import { IResSummary, IDayOfWeekSummaries } from '../app.state';
 
 @Component({
   selector: 'my-weekly',
@@ -19,13 +19,13 @@ import { IResSummary, IDayOfSummaries } from '../app.state';
 `
 })
 export class WeeklyComponent {
-  @Input() summaries: IDayOfSummaries;
+  @Input() summaries: IDayOfWeekSummaries;
   get datasets() {
-    const data = this.keys.map(key => this.summaries[key].reduce((prev, curr) => prev + curr.total_seconds, 0));
+    const data = this.summaries.map(s => s.summaries.reduce((p, c) => p + c.total_seconds, 0));
     return [{ data, label: 'total sec', lineTension: 0.2 }];
   }
   get labels() {
-    return this.keys;
+    return this.summaries.map(s => s.date);
   }
   public options = {
     animation: false,
@@ -41,7 +41,4 @@ export class WeeklyComponent {
   }];
   public legend = true;
   public chartType: string = 'line';
-  get keys(): string[] {
-    return Object.keys(this.summaries);
-  }
 }

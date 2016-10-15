@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from 'walts';
 
-import { AppState, IResSummary, IDayOfSummaries } from './app.state';
+import { AppState, IResSummary, IDayOfWeekSummaries, IDailySummaries } from './app.state';
 import { AppDispatcher } from './app.dispatcher';
 
 function getInitialState(): AppState {
@@ -19,14 +19,17 @@ export class AppStore extends Store<AppState> {
   get appState(): Observable<AppState> {
     return this.observable.map<AppState>(s => s);
   }
-  get dayOfSummaries(): Observable<IDayOfSummaries> {
-    return this.observable.map<IDayOfSummaries>(s => {
+  get dayOfWeekSummaries(): Observable<IDayOfWeekSummaries> {
+    return this.observable.map<IDayOfWeekSummaries>(s => {
       if (s.summaries.length === 0) return;
-      const d = s.summaries.reduce((prev, curr, i) => {
-        const newValue = prev[curr.date] ? [...prev[curr.date], curr] : [curr];
-        return Object.assign({}, prev, { [curr.date]: newValue });
-      }, <{ [key: string]: IResSummary[] }>{});
-      return d;
-    })
+
+      return Array.from(new Set(s.summaries.map(d => d.date)))
+        .map(date => {
+          const summaries = s.summaries
+            .filter(d => d.date === date)
+            .reduce<IResSummary[]>((p, c) => [...p, c], []);
+          return { date, summaries };
+        });
+    });
   }
 }

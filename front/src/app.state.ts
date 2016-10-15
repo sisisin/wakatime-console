@@ -15,4 +15,8 @@ export interface IResSummary {
   total_seconds: number;
 }
 
-export interface IDayOfSummaries { [key: string]: IResSummary[] }
+export interface IDailySummaries {
+  date: string;
+  summaries: IResSummary[];
+}
+export type IDayOfWeekSummaries = IDailySummaries[];

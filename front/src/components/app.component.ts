@@ -2,18 +2,18 @@ import { Component } from '@angular/core';
 import { AppActions } from '../app.actions';
 import { AppDispatcher } from '../app.dispatcher';
 import { AppStore } from '../app.store';
-import { AppState, IDayOfSummaries } from '../app.state';
+import { AppState, IDayOfWeekSummaries } from '../app.state';
 
 @Component({
   selector: 'my-app',
   template: `
     <h1>dashboard</h1>
-    <my-weekly [summaries]="dayOfSummaries"></my-weekly>
+    <my-weekly [summaries]="dayOfWeekSummaries"></my-weekly>
   `
 })
 export class AppComponent {
   private state: AppState;
-  private dayOfSummaries: IDayOfSummaries;
+  private dayOfWeekSummaries: IDayOfWeekSummaries;
   constructor(
     private store: AppStore,
     private dispatcher: AppDispatcher,
@@ -23,7 +23,7 @@ export class AppComponent {
     this.store.appState.subscribe(s => {
       this.state = s;
     });
-    this.store.dayOfSummaries.subscribe(s => this.dayOfSummaries = s);
+    this.store.dayOfWeekSummaries.subscribe(s => this.dayOfWeekSummaries = s);
     this.dispatcher.emit(this.action.fetchSummaries());
   }
 }
