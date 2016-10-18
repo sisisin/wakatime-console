@@ -26,3 +26,4 @@ node_modules/
 # Ignore bundle
 front/.tmp/
 app/assets/javascripts/bundle.js
+public/assets/javascripts/bundle.js

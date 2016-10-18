@@ -8,4 +8,5 @@ declare var require: any;
 const Chart: any = require('../../node_modules/chart.js/src/chart');
 
 // for sprockets
-(<any>window).runNg2 = () => platformBrowserDynamic().bootstrapModule(AppModule)
+// (<any>window).runNg2 = () => 
+platformBrowserDynamic().bootstrapModule(AppModule)
