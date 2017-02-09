@@ -22,8 +22,12 @@
 
 # Ignore node.js
 node_modules/
+npm-debug.log
 
 # Ignore bundle
 front/.tmp/
 app/assets/javascripts/bundle.js
 public/assets/javascripts/bundle.js
+
+# docker
+.env
