@@ -1,2 +1,0 @@
-class ExcludeRepository < ApplicationRecord
-end
