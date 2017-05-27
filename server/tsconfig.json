@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    // "lib": [],                             /* Specify library files to be included in the compilation:  */
+    // "declaration": true,                   /* Generates corresponding '.d.ts' file. */
+    // "sourceMap": true,                     /* Generates corresponding '.map' file. */
+    "rootDir": "./src",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */    
+    "outDir": "./dist",                        /* Redirect output structure to the directory. */
+    "strict": true,                            /* Enable all strict type-checking options. */
+    "noUnusedLocals": true,                /* Report errors on unused locals. */
+    "moduleResolution": "node",            /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
+    "typeRoots": ["node_modules/@types"]                           /* Type declaration files to be included in compilation. */
+    /* Experimental Options */                
+    // "experimentalDecorators": true,        /* Enables experimental support for ES7 decorators. */
+    // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
+  }
+}
