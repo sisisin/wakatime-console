@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "common", "common\common.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web", "web\web.csproj", "{7BDFDA0D-D22A-450C-B747-C05BCB42B2A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "batch", "batch\batch.csproj", "{2CFE343F-E185-492F-90A8-E713CED6D359}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,5 +46,17 @@ Global
 		{7BDFDA0D-D22A-450C-B747-C05BCB42B2A2}.Release|x64.Build.0 = Release|Any CPU
 		{7BDFDA0D-D22A-450C-B747-C05BCB42B2A2}.Release|x86.ActiveCfg = Release|Any CPU
 		{7BDFDA0D-D22A-450C-B747-C05BCB42B2A2}.Release|x86.Build.0 = Release|Any CPU
+		{2CFE343F-E185-492F-90A8-E713CED6D359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CFE343F-E185-492F-90A8-E713CED6D359}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CFE343F-E185-492F-90A8-E713CED6D359}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2CFE343F-E185-492F-90A8-E713CED6D359}.Debug|x64.Build.0 = Debug|Any CPU
+		{2CFE343F-E185-492F-90A8-E713CED6D359}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2CFE343F-E185-492F-90A8-E713CED6D359}.Debug|x86.Build.0 = Debug|Any CPU
+		{2CFE343F-E185-492F-90A8-E713CED6D359}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CFE343F-E185-492F-90A8-E713CED6D359}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CFE343F-E185-492F-90A8-E713CED6D359}.Release|x64.ActiveCfg = Release|Any CPU
+		{2CFE343F-E185-492F-90A8-E713CED6D359}.Release|x64.Build.0 = Release|Any CPU
+		{2CFE343F-E185-492F-90A8-E713CED6D359}.Release|x86.ActiveCfg = Release|Any CPU
+		{2CFE343F-E185-492F-90A8-E713CED6D359}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

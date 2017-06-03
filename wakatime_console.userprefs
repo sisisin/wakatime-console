@@ -1,14 +1,19 @@
-﻿<Properties StartupConfiguration="{7BDFDA0D-D22A-450C-B747-C05BCB42B2A2}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="web/Controllers/ValuesController.cs">
+﻿<Properties StartupConfiguration="{2CFE343F-E185-492F-90A8-E713CED6D359}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="batch/Program.cs">
     <Files>
-      <File FileName="web/Startup.cs" Line="38" Column="10" />
-      <File FileName="web/Controllers/ValuesController.cs" Line="28" Column="73" />
+      <File FileName="batch/WakatimeClient.cs" Line="1" Column="1" />
+      <File FileName="batch/Program.cs" Line="65" Column="19" />
+      <File FileName="web/Startup.cs" Line="36" Column="21" />
+      <File FileName="common/appsettings.Development.json" Line="5" Column="1" />
+      <File FileName="common/dao/Projects.cs" Line="19" Column="20" />
+      <File FileName="common/dao/Editors.cs" Line="6" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.batch PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.web PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
