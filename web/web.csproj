@@ -18,4 +18,12 @@
   <ItemGroup>
     <ProjectReference Include="..\common\common.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\common\appsettings-common.json">
+      <Link>appsettings-common.json</Link>
+    </None>
+    <None Include="..\common\appsettings-common.Development.json">
+      <Link>appsettings-common.Development.json</Link>
+    </None>
+  </ItemGroup>
 </Project>

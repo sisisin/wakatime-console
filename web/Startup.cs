@@ -20,11 +20,22 @@ namespace web
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddJsonFile(Path.GetFullPath(@"../common/appsettings.json"), optional: false, reloadOnChange:true)
-                .AddJsonFile(Path.GetFullPath($"../common/appsettings.{env.EnvironmentName}.json"), optional: true)
+                .AddJsonFile("appsettings-web.json", optional: false, reloadOnChange: true)
+                .AddJsonFile($"appsettings-web.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
+
+            if (env.IsDevelopment())
+            {
+                builder
+                .AddJsonFile(Path.GetFullPath(@"../common/appsettings-common.json"), optional: false, reloadOnChange: true)
+                .AddJsonFile(Path.GetFullPath($"../common/appsettings-common.{env.EnvironmentName}.json"), optional: true);
+            }
+            else
+            {
+                builder
+                .AddJsonFile("appsettings-common.json", optional: false, reloadOnChange: true)
+                .AddJsonFile($"appsettings-common.{env.EnvironmentName}.json", optional: true);
+            }
             Configuration = builder.Build();
         }
 
@@ -33,7 +44,7 @@ namespace web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<wakatime_consoleContext>(options => options.UseNpgsql(Configuration.GetConnectionString("db")));
+            services.AddDbContext<wakatime_consoleContext>(options => options.UseNpgsql(Configuration.GetConnectionString("docker")));
             services.AddMvc();
         }
 

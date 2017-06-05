@@ -1,4 +1,4 @@
-﻿﻿﻿using System;
+﻿﻿using System;
 using System.Linq;
 using Microsoft.Extensions.Configuration;
 using System.IO;
@@ -22,12 +22,13 @@ namespace batch
         static void Main(string[] args)
         {
             var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            var isDevelopment = environmentName == "Development";
             var builder = new ConfigurationBuilder()
-                .SetBasePath(Path.GetFullPath("./"))
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{environmentName}.json", optional: true)
-                .AddJsonFile(Path.GetFullPath(@"../common/appsettings.json"), optional: false, reloadOnChange: true)
-                .AddJsonFile(Path.GetFullPath($"../common/appsettings.{environmentName}.json"), optional: true)
+                .SetBasePath(Directory.GetCurrentDirectory())
+				.AddJsonFile("appsettings-batch.json", optional: false, reloadOnChange: true)
+				.AddJsonFile($"appsettings-batch.{environmentName}.json", optional: true)
+				.AddJsonFile("appsettings-common.json", optional: false, reloadOnChange: true)
+				.AddJsonFile($"appsettings-common.{environmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
 
@@ -35,7 +36,8 @@ namespace batch
             ConfigureService(services);
             var serviceProvider = services.BuildServiceProvider();
 
-            var targetDate = args.Length == 0 ? DateTime.Now.AddDays(-1) : DateTime.Parse(args[0]);
+            // var targetDate = args.Length == 0 ? DateTime.Now.AddDays(-1) : DateTime.Parse(args[0]);
+            var targetDate = DateTime.Now.AddDays(-1);
 
             var wktClient = new WakatimeClient(Configuration);
             var res = wktClient.FetchProjects(targetDate);
@@ -63,7 +65,7 @@ namespace batch
 
                     return response;
                 });
-                foreach(var t in tasks) { t.Wait(); }
+                foreach (var t in tasks) { t.Wait(); }
             }
         }
     }
