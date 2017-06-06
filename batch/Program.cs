@@ -7,6 +7,7 @@ using common.dao;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Logging;
 
 namespace batch
 {
@@ -17,6 +18,7 @@ namespace batch
         public static void ConfigureService(IServiceCollection services)
         {
             services.AddDbContext<wakatime_consoleContext>(options => options.UseNpgsql(Configuration.GetConnectionString("db")));
+            services.AddLogging();
         }
 
         static void Main(string[] args)
@@ -25,19 +27,44 @@ namespace batch
             var isDevelopment = environmentName == "Development";
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-				.AddJsonFile("appsettings-batch.json", optional: false, reloadOnChange: true)
-				.AddJsonFile($"appsettings-batch.{environmentName}.json", optional: true)
-				.AddJsonFile("appsettings-common.json", optional: false, reloadOnChange: true)
-				.AddJsonFile($"appsettings-common.{environmentName}.json", optional: true)
+                .AddJsonFile("appsettings-batch.json", optional: false, reloadOnChange: true)
                 .AddEnvironmentVariables();
+            if (isDevelopment)
+            {
+                builder
+                .AddJsonFile(Path.GetFullPath(@"../common/appsettings-common.json"), optional: false, reloadOnChange: true)
+                .AddJsonFile(Path.GetFullPath($"../common/appsettings-common.{environmentName}.json"), optional: true);
+            }
+            else
+            {
+                builder
+                .AddJsonFile("appsettings-common.json", optional: false, reloadOnChange: true)
+                .AddJsonFile($"appsettings-common.{environmentName}.json", optional: true);
+            }
+
             Configuration = builder.Build();
 
             var services = new ServiceCollection();
             ConfigureService(services);
             var serviceProvider = services.BuildServiceProvider();
+            var logger = serviceProvider.GetService<ILoggerFactory>().AddConsole().AddDebug().CreateLogger("BatchLog");
 
+            try
+            {
+                Run(logger, serviceProvider);
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e.ToString());
+                throw e;
+            }
+        }
+
+        public static void Run(ILogger logger, IServiceProvider serviceProvider)
+        {
             // var targetDate = args.Length == 0 ? DateTime.Now.AddDays(-1) : DateTime.Parse(args[0]);
             var targetDate = DateTime.Now.AddDays(-1);
+            logger.LogInformation($"targetDate is {targetDate}");
 
             var wktClient = new WakatimeClient(Configuration);
             var res = wktClient.FetchProjects(targetDate);
