@@ -26,7 +26,7 @@ namespace batch
             var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             var isDevelopment = environmentName == "Development";
             var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
+                .SetBasePath(AppContext.BaseDirectory)
                 .AddJsonFile("appsettings-batch.json", optional: false, reloadOnChange: true)
                 .AddEnvironmentVariables();
             if (isDevelopment)
@@ -48,7 +48,6 @@ namespace batch
             ConfigureService(services);
             var serviceProvider = services.BuildServiceProvider();
             var logger = serviceProvider.GetService<ILoggerFactory>().AddConsole().AddDebug().CreateLogger("BatchLog");
-
             try
             {
                 Run(logger, serviceProvider);

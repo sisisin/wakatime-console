@@ -22,5 +22,8 @@
     <None Include="..\common\appsettings-common.Development.json">
       <Link>appsettings-common.Development.json</Link>
     </None>
+    <Content Include="appsettings-batch.json">
+        <CopyToPublishDirectory Condition="Exists(%(Identity))">PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 </Project>
