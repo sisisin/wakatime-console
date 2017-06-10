@@ -1,0 +1,21 @@
+﻿<Properties StartupConfiguration="{2CFE343F-E185-492F-90A8-E713CED6D359}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="batch/appsettings-batch.json">
+    <Files>
+      <File FileName="common/appsettings-common.json" Line="1" Column="1" />
+      <File FileName="web/appsettings-web.json" Line="1" Column="1" />
+      <File FileName="batch/Program.cs" Line="1" Column="1" />
+      <File FileName="common/appsettings-common.Development.json" Line="1" Column="1" />
+      <File FileName="web/appsettings-web.Development.json" Line="1" Column="1" />
+      <File FileName="web/Program.cs" Line="1" Column="1" />
+      <File FileName="web/Startup.cs" Line="1" Column="1" />
+      <File FileName="batch/appsettings-batch.json" Line="2" Column="18" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.batch PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

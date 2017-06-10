@@ -1,24 +1,29 @@
-# README
+# setup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- install dotnet
+- install docker
 
-Things you may want to cover:
+# dev
 
-* Ruby version
+```
+docker-compose -f docker-compose.dev.yml up
+cd web
+dotnet run
+```
 
-* System dependencies
+# build & run
 
-* Configuration
+## batch
 
-* Database creation
+```sh
+cd batch
+dotnet restore
+dotnet publish -c Release -o build
+```
 
-* Database initialization
+## web
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```sh
+bash ./scripts/web-build.sh
+docker-compose up
+```
