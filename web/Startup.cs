@@ -50,6 +50,7 @@ namespace web
             services
                 .AddMvc()
                 .AddJsonOptions(opt => { opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore; });
+            services.AddCors(opt => opt.AddPolicy("AllowAnyOriginForDev", builder => builder.AllowAnyOrigin()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,7 +59,18 @@ namespace web
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseMvc();
+            if (env.IsDevelopment())
+            {
+                app.UseCors("AllowAnyOriginForDev");
+            }
+            app.UseStaticFiles();
+
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(name: "default", template: "{controller=Index}/{action=Index}/{id?}");
+                routes.MapSpaFallbackRoute(name: "spa-fallback", defaults: new { controller = "Index", action = "Index" });
+            });
         }
     }
 }
