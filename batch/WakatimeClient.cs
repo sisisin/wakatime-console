@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization.Json;
 using System.Linq;
 using batch.Entity;
+using Microsoft.Extensions.Logging;
 
 namespace batch
 {
@@ -15,9 +16,11 @@ namespace batch
         private static HttpClient client = new HttpClient();
         private string baseUrl = "https://wakatime.com/api/v1/users/52f058ec-e04e-436b-906d-eff6c461abf5/summaries";
         private IConfigurationRoot conf;
-        public WakatimeClient(IConfigurationRoot conf)
+        private ILogger logger;
+        public WakatimeClient(IConfigurationRoot conf, ILogger logger)
         {
             this.conf = conf;
+            this.logger = logger;
         }
 
         async public Task<ProjectEntity> FetchProjects(DateTime targetDate)
@@ -42,8 +45,9 @@ namespace batch
                 {"end", targetDate.Date.ToString("yyyy/MM/dd")},
                 {"project", projectName}
             };
-
-            var result = await (await client.GetAsync(QueryHelpers.AddQueryString(baseUrl, q))).Content.ReadAsStreamAsync();
+            var url = QueryHelpers.AddQueryString(baseUrl, q);
+            this.logger.LogInformation($"request to {url}");
+            var result = await (await client.GetAsync(url)).Content.ReadAsStreamAsync();
             var ser = new DataContractJsonSerializer(typeof(ProjectSummaryEntity));
             var summary = (ProjectSummaryEntity)ser.ReadObject(result);
             return summary;

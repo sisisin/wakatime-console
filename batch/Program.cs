@@ -26,7 +26,7 @@ namespace batch
             var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             var isDevelopment = environmentName == "Development";
             var builder = new ConfigurationBuilder()
-                .SetBasePath(AppContext.BaseDirectory)
+                .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings-batch.json", optional: false, reloadOnChange: true)
                 .AddEnvironmentVariables();
             if (isDevelopment)
@@ -65,32 +65,32 @@ namespace batch
             var targetDate = DateTime.Now.AddDays(-1);
             logger.LogInformation($"targetDate is {targetDate}");
 
-            var wktClient = new WakatimeClient(Configuration);
+            var wktClient = new WakatimeClient(Configuration, logger);
             var res = wktClient.FetchProjects(targetDate);
             res.Wait();
 
             using (var db = ActivatorUtilities.CreateInstance<wakatime_consoleContext>(serviceProvider))
             {
                 var tasks = res.Result.data.FirstOrDefault().projects.Select(async proj =>
-                {
-                    var response = await wktClient.FetchProjectSummary(targetDate, proj.name);
-                    var data = response.data.First();
-                    var project = new Projects
-                    {
-                        Date = targetDate,
-                        Name = proj.name,
-                        TotalSeconds = data.grand_total.total_seconds
-                    };
-                    data.editors.ForEach(e => project.Editors.Add(new Editors { Name = e.name, TotalSeconds = e.total_seconds }));
-                    data.entities.ForEach(e => project.Entities.Add(new Entities { Name = e.name, TotalSeconds = e.total_seconds }));
-                    data.languages.ForEach(e => project.Languages.Add(new Languages { Name = e.name, TotalSeconds = e.total_seconds }));
-                    data.operating_systems.ForEach(e => project.OperatingSystems.Add(new OperatingSystems { Name = e.name, TotalSeconds = e.total_seconds }));
+                 {
+                     var response = await wktClient.FetchProjectSummary(targetDate, proj.name);
+                     var data = response.data.First();
+                     var project = new Projects
+                     {
+                         Date = targetDate,
+                         Name = proj.name,
+                         TotalSeconds = data.grand_total.total_seconds
+                     };
+                     data.editors.ForEach(e => project.Editors.Add(new Editors { Name = e.name, TotalSeconds = e.total_seconds }));
+                     data.entities.ForEach(e => project.Entities.Add(new Entities { Name = e.name, TotalSeconds = e.total_seconds }));
+                     data.languages.ForEach(e => project.Languages.Add(new Languages { Name = e.name, TotalSeconds = e.total_seconds }));
+                     data.operating_systems.ForEach(e => project.OperatingSystems.Add(new OperatingSystems { Name = e.name, TotalSeconds = e.total_seconds }));
 
-                    db.Projects.Add(project);
-                    db.SaveChanges();
-
-                    return response;
-                });
+                     db.Projects.Add(project);
+                     db.SaveChanges();
+                     
+                     return response;
+                 });
                 foreach (var t in tasks) { t.Wait(); }
             }
         }
