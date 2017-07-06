@@ -33,3 +33,6 @@ msbuild.wrn
 
 # docker
 .env
+
+# front dist
+web/wwwroot/*.*
