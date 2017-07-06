@@ -1,5 +1,5 @@
 #!/bin/sh
 
-source ~/.bashrc
+source ~/.bash_profile
 cd $WKT_CONSOLE_PATH/batch/build
 dotnet batch.dll
