@@ -1,5 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { Http } from '@angular/http';
+import { Component, OnInit } from '@angular/core';
+import 'rxjs/add/operator/filter';
+
+import { SummariesService } from './services/summaries.service';
+import { ISummaries } from './models/summaries';
 
 @Component({
     selector: 'app-root',
@@ -8,12 +11,16 @@ import { Http } from '@angular/http';
 })
 export class AppComponent implements OnInit {
     title = 'app';
-    constructor(private http: Http, @Inject('HOST') private host: string) { }
+    weeklySummary: string;
+    constructor(private summariesService: SummariesService) { }
 
     ngOnInit() {
-        this.http.get(`${this.host}/api/summaries`).subscribe(res => {
-            const body = res.json();
-            console.log(body);
-        })
+        this.summariesService.list().subscribe(res => {
+            const body = <ISummaries[]>res.json();
+            const z = new Date(0);
+            const w = new Date(0);
+            w.setSeconds(z.getSeconds() + body.reduce((prev, curr) => prev + curr.totalSeconds, 0))
+            this.weeklySummary = `${w.getHours() - z.getHours()}h ${w.getMinutes()}m`
+        });
     }
 }
